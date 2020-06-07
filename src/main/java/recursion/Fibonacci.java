@@ -4,6 +4,7 @@ package recursion;
  * Created by longyun on 2018/10/11.
  */
 public class Fibonacci {
+
     //斐波那契额数列
     public static void main(String[] args) {
         for (int i = 1; i < 10 ; i++) {

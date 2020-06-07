@@ -6,6 +6,7 @@ import java.util.Arrays;
  * Created by longyun on 2018/10/26.
  */
 public class QuickSort {
+
     public static void main(String[] args) {
         int[] nums = new int[]{3, 3, 2, 4, 1, 2, 1, 6, 5};
         int low = 0;
@@ -14,6 +15,9 @@ public class QuickSort {
         System.out.println(Arrays.toString(nums));
     }
 
+    /**
+     * 快速排序：从小往大排序
+     */
     public static void quickSort(int[] nums, int low, int high) {
         //if循环条件
         if (low < high) {
@@ -28,9 +32,10 @@ public class QuickSort {
         int j = high + 1;
         while (true) {
             //从左往右，找到第一个比基准元素大的元素  （注意，是++i）
-            while(nums[++i] < nums[low] && i < high);
+            while (nums[++i] < nums[low] && i < high) ;
+
             //从右往左，找到第一个比基准元素小的元素  （注意，是--j）
-            while(nums[--j] > nums[low] && j > low) ;
+            while (nums[--j] > nums[low] && j > low) ;
 
             if (i < j) {
                 swap(nums, i, j);

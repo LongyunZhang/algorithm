@@ -16,7 +16,6 @@ public class ListTest {
 
         int a = list.get(1); //get() 索引查找
 
-
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.push(1);//入栈
         linkedList.push(2); //入栈
@@ -38,6 +37,7 @@ public class ListTest {
         System.out.println("peekFirst: " + linkedList.peekFirst());
 
     }
+
     public static void print(LinkedList<Integer> linkedList){
         for (int num : linkedList) {
             System.out.print(num + " ");

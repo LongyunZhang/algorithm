@@ -7,7 +7,9 @@ import java.util.*;
  */
 public class QueueArray {
     public static void main(String[] args) {
+
       LinkedList linkedList  = new LinkedList();
+
 
       ArrayDeque<Integer> queue = new ArrayDeque<>();
       queue.push(1);//入栈

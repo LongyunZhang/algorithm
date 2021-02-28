@@ -7,6 +7,7 @@ import java.util.*;
  * Created by longyun on 2018/10/15.
  */
 public class BinaryTree {
+
     private TreeNode root; // 根
     public BinaryTree() {	// 构造函数
         root = null;
@@ -44,17 +45,73 @@ public class BinaryTree {
         }
     }
 
-    public static void main(String[] args) {
-        BinaryTree binaryTree = new BinaryTree();
-        TreeNode root = new TreeNode(6);
-        int[] num = {1, 2, 3, 4, 5, 6};
-        for(int i = 0; i < num.length; i++){
-            binaryTree.buildTree(root, num[i]);
-        }
-        binaryTree.levelOrderBottom(root);
+    private TreeNode buildOrderTree() {
+        TreeNode root = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        root.left = node2;
+        root.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        return root;
     }
 
-    //VLR——先序遍历
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+//        TreeNode root = new TreeNode(6);
+//        int[] num = {1, 2, 3, 4, 5, 6};
+//        for(int i = 0; i < num.length; i++){
+//            binaryTree.buildTree(root, num[i]);
+//        }
+//        binaryTree.levelOrderBottom(root);
+
+
+        TreeNode root1 = binaryTree.buildOrderTree();
+        binaryTree.vlrDFSDigui(root1);
+        System.out.println();
+        binaryTree.lvrDFSDigui(root1);
+        System.out.println();
+        binaryTree.lrvDFSDigui(root1);
+    }
+
+    /**
+     * 深度遍历 ： 前序遍历 (递归)---------------------
+     */
+    void vlrDFSDigui(TreeNode root) {
+        if (root != null) {
+            System.out.print(root.data + " ");
+            vlrDFSDigui(root.left);
+            vlrDFSDigui(root.right);
+        }
+    }
+
+    /**
+     * 深度遍历 ： 中序遍历 (递归)---------------------
+     */
+    void lvrDFSDigui(TreeNode root) {
+        if (root != null) {
+            vlrDFSDigui(root.left);
+            System.out.print(root.data + " ");
+            vlrDFSDigui(root.right);
+        }
+    }
+
+    /**
+     * 深度遍历 ： 后序遍历 (递归)---------------------
+     */
+    void lrvDFSDigui(TreeNode root) {
+        if (root != null) {
+            vlrDFSDigui(root.left);
+            vlrDFSDigui(root.right);
+            System.out.print(root.data + " ");
+        }
+    }
+
+    /**
+     * 深度遍历 ： 前序遍历 (非递归)---------------------
+     */
     void vlrDFS(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
